@@ -5,6 +5,8 @@ const render = (vNode, container) => {
         return container.appendChild(textNode)
     }
 
+
+    // TODO: 组件不能获取class 组件的class在未替换的vNode.attrs上 需要和props做区分 应该是可以直接取className 组件内部class获取位置应该是可以的
     console.log('before-->',vNode)
     if(vNode.tag && vNode.tag instanceof Function) vNode = vNode.tag(vNode.attrs)
     console.log('after-->',vNode)
