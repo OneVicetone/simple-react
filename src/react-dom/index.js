@@ -5,6 +5,9 @@ const render = (vNode, container) => {
         return container.appendChild(textNode)
     }
 
+    console.log('before-->',vNode)
+    if(vNode.tag && vNode.tag instanceof Function) vNode = vNode.tag(vNode.attrs)
+    console.log('after-->',vNode)
     const { tag, attrs } = vNode
     const dom = document.createElement(tag)
     if (attrs) {
